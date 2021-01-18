@@ -27,7 +27,7 @@ Below you will find the features and capabilities as I implement them.
 - [ ] Risk Object 📉📈
   - [x] accept portfolio object in class constructor
   - [ ] daily average return and volatitily (standard deviation)
-  - [ ]Beta
+  - [ ] Beta
   - [ ] Sharpe Ratio
   - [ ] Correlation Matrix
   - [ ] Value at Risk (VaR)
