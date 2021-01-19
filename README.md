@@ -7,6 +7,7 @@ A python library that helps assess one's investment portfolio risk.
 Below you will find the features and capabilities as I implement them.
 
 ### TODO 📝
+Note: only items that are completely implemented are marked complete. If an item is not checked off, it may be only partly implemented.
 - [ ] Portfolio Object 📁
   - [x] add or remove equity and cash positions
   - [x] create a pandas dataframe that calculates daily returns from positions
@@ -26,7 +27,7 @@ Below you will find the features and capabilities as I implement them.
     - [ ] use env variables to configure APIs
 - [ ] Risk Object 📉📈
   - [x] accept portfolio object in class constructor
-  - [ ] daily average return and volatitily (standard deviation)
+  - [x] daily average return and volatitily (standard deviation)
   - [ ] Beta
   - [ ] Sharpe Ratio
   - [ ] Correlation Matrix

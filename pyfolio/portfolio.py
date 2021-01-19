@@ -10,6 +10,7 @@ class Portfolio:
     def __init__(self, bench: str = 'sp500', data_source: str = 'yfinance'):
         # perhaps I should store this in env variables
         self._data_source = data_source
+        self.bench = bench
         self.MIN_DATES = 1260
 
         self.returns_df = None
@@ -22,6 +23,9 @@ class Portfolio:
 
         self.data = data.Data(data_source)
         self.fx_df = self.data.fx_df()
+
+    def _add_benchmark(self, returns_df):
+        pass
 
     def add_cash(self, amount: float, currency: str):
         currency = currency.upper()
@@ -87,7 +91,7 @@ class Portfolio:
         returns_df['TOTAL'] = returns_df[list(returns_df.columns)].sum(axis=1)
 
         returns_df['Percent_Ret'] = returns_df['TOTAL'].pct_change(periods=1)
-        returns_df['Percent_Ret'] = returns_df['Percent_Ret']*100
+        # returns_df['Percent_Ret'] = returns_df['Percent_Ret']*100
 
         returns_df['Log_Ret'] = (np.log(returns_df['TOTAL'])
                                  - np.log(returns_df['TOTAL'].shift(1)))
