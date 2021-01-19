@@ -35,7 +35,6 @@ class Portfolio:
         # time.sleep?
         bench_df = self.data.bench(self.bench)
         returns_df = pd.concat([ret_df, bench_df], axis=1)
-        print('why hello there')
 
         return returns_df
 

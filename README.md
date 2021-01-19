@@ -13,6 +13,8 @@ Note: only items that are completely implemented are marked complete. If an item
   - [x] create a pandas dataframe that calculates daily returns from positions
   - [x] handle Canadian and American symbols (FX conversion)
   - [x] print portfolio as a JSON object
+  - [x] calculate daily portfolio value, percent return, log return
+  - [x] create a pandas df containing daily price data for holdings, total value, and benchmark
   - [ ] save and read user's portfolios
 - [ ] Data Object 📊
   - [x] get daily returns for symbols
