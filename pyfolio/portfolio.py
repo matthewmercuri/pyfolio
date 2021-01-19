@@ -10,7 +10,7 @@ class Portfolio:
     def __init__(self, bench: str = 'sp500', data_source: str = 'yfinance'):
         # perhaps I should store this in env variables
         self._data_source = data_source
-        self.bench = bench
+        self.bench = self._validate_bench(bench)
         self.MIN_DATES = 1260
 
         self.returns_df = None
@@ -24,8 +24,20 @@ class Portfolio:
         self.data = data.Data(data_source)
         self.fx_df = self.data.fx_df()
 
-    def _add_benchmark(self, returns_df):
-        pass
+    def _validate_bench(self, bench):
+        bench = bench.upper()
+        if bench not in ['SP500']:
+            raise KeyError(f'{bench} is not a valid benchmark!')
+
+        return bench
+
+    def _add_benchmark(self, ret_df):
+        # time.sleep?
+        bench_df = self.data.bench(self.bench)
+        returns_df = pd.concat([ret_df, bench_df], axis=1)
+        print('why hello there')
+
+        return returns_df
 
     def add_cash(self, amount: float, currency: str):
         currency = currency.upper()
@@ -66,6 +78,7 @@ class Portfolio:
         ticker_returns_dfs = []
 
         for pos in positions:
+            # may need to add a time.sleep here
             ticker_return_df = self.data.returns(pos)
             shares = self.portfolio['Holdings'][pos]['shares']
             if len(ticker_return_df) < min_dates:
@@ -96,6 +109,9 @@ class Portfolio:
         returns_df['Log_Ret'] = (np.log(returns_df['TOTAL'])
                                  - np.log(returns_df['TOTAL'].shift(1)))
         # returns_df['Log_Ret'] = returns_df['Log_Ret']*100
+
+        # Adding benchmark pricing data
+        returns_df = self._add_benchmark(returns_df)
 
         returns_df = returns_df.tail(self.MIN_DATES)
 

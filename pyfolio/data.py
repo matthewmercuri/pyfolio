@@ -50,3 +50,16 @@ class Data:
             returns.rename('CAD/USD', inplace=True)
 
         return returns
+
+    def bench(self, bench: str):
+        bench_df = None
+
+        if self.source == 'YFINANCE':
+            if bench == "SP500":
+                bench = '^GSPC'
+
+        if self.source == 'YFINANCE':
+            bench_df = yfin.get_returns(bench)
+            bench_df.rename(bench, inplace=True)
+
+        return bench_df

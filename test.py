@@ -13,5 +13,7 @@ Portfolio.add_position('AAPL', 2)
 # print(Portfolio.return_series())
 # charts.Chart(Portfolio)
 
+# print(Portfolio.return_series())
+
 Risk = risk.Risk(Portfolio)
 Risk.all_metrics()
