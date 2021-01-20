@@ -60,6 +60,6 @@ class Data:
 
         if self.source == 'YFINANCE':
             bench_df = yfin.get_returns(bench)
-            bench_df.rename(bench, inplace=True)
+            bench_df.rename('Bench', inplace=True)
 
         return bench_df

@@ -35,6 +35,7 @@ class Portfolio:
         # time.sleep?
         bench_df = self.data.bench(self.bench)
         returns_df = pd.concat([ret_df, bench_df], axis=1)
+        returns_df['Bench_P_Ret'] = returns_df['Bench'].pct_change(periods=1)
 
         return returns_df
 

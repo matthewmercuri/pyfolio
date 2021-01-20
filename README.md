@@ -15,7 +15,7 @@ Note: only items that are completely implemented are marked complete. If an item
   - [x] print portfolio as a JSON object
   - [x] calculate daily portfolio value, percent return, log return
   - [x] create a pandas df containing daily price data for holdings, total value, and benchmark
-  - [ ] save and read user's portfolios
+  - [x] save and load user's portfolios
 - [ ] Data Object 📊
   - [x] get daily returns for symbols
   - [x] get latest price for symbols
@@ -23,14 +23,14 @@ Note: only items that are completely implemented are marked complete. If an item
   - [x] data source agnostic
   - [ ] client-side symbol validation
   - [ ] Data Sources
-    - [x] yfinance (data source)
-    - [ ] tiingo? (data source)
-    - [ ] IEX? (data source)
+    - [x] yfinance
+    - [ ] tiingo?
+    - [ ] IEX?
     - [ ] use env variables to configure APIs
 - [ ] Risk Object 📉📈
   - [x] accept portfolio object in class constructor
   - [x] daily average return and volatitily (standard deviation)
-  - [ ] Beta
+  - [x] Daily Beta
   - [ ] Sharpe Ratio
   - [ ] Correlation Matrix
   - [ ] Value at Risk (VaR)
